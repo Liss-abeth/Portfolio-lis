@@ -2,6 +2,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import { SiTailwindcss } from "react-icons/si";
+import { Link } from 'react-router-dom';
 
 import { ExternalLink, Github } from "lucide-react";
 import axios from "axios";
@@ -712,7 +713,7 @@ const handleChange = e => {
     <div className="border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500 gap-4">
       <p>
         © {new Date().getFullYear()} Lissabeth Babu. All rights reserved.
-        <a href="/admin-login" className="text-transparent ml-1">.</a>
+        <Link to="/admin-login" className="text-transparent ml-1">.</Link>
       </p>
       <div className="flex items-center gap-4">
         {/* <span>Last updated: Apr 7, 2025</span> */}
