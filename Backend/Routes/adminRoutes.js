@@ -1,6 +1,6 @@
 const express = require('express');
 const { loginAdmin, protectedRoute } = require('../controllers/adminController');
-const { verifyAdmin } = require('../Middleware/auth');
+const { verifyAdmin } = require('../middleware/auth');
 
 const router = express.Router();
 
