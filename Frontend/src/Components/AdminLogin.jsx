@@ -51,7 +51,7 @@ function AdminLogin() {
    const handleLogin = async (e) => {
     e.preventDefault();
     try {
-        const res = await axios.post("http://localhost:1000/admin/admin-login", {
+      const res = await axios.post("https://portfolio-backend-xnzh.onrender.com/admin/admin-login", {
             email,
             password,
         });

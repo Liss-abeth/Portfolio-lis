@@ -154,7 +154,7 @@ const visibleProjects = showAllProjects ? projects : projects.slice(0, 6);
 
   const fetchProjects = async () => {
     try {
-      const res = await axios.get("http://localhost:1000/projects");
+      const res = await axios.get("https://portfolio-backend-xnzh.onrender.com/projects");
       setProjects(res.data);
     } catch (error) {
       console.error("Failed to fetch projects", error);
@@ -177,7 +177,7 @@ const handleChange = e => {
     setSuccess(null);
 
     try {
-      await axios.post('http://localhost:1000/contact/create', form);
+     await axios.post('https://portfolio-backend-xnzh.onrender.com/contact/create', form);
       setSuccess("Message sent successfully!");
       setForm({ name: '', email: '', message: '' });
     } catch (err) {

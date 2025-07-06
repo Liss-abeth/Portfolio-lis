@@ -116,7 +116,7 @@ const [contacts, setContacts] = useState([]);
     };
   
     try {
-      const res = await fetch(`http://localhost:1000/home/update/${homeId}`, {
+     const res = await fetch(`https://portfolio-backend-xnzh.onrender.com/home/update/${homeId}`, {
         method: "PUT", // Use PUT to match the backend route
         headers: {
           "Content-Type": "application/json",
@@ -153,7 +153,7 @@ const [contacts, setContacts] = useState([]);
     };
   
     try {
-      const res = await fetch("http://localhost:1000/projects/create", {
+    const res = await fetch("https://portfolio-backend-xnzh.onrender.com/projects/create", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -182,7 +182,7 @@ const [contacts, setContacts] = useState([]);
   setContactError(null);
 
   try {
-    const response = await axios.get("http://localhost:1000/contact"); // ✅ correct endpoint
+   const response = await axios.get("https://portfolio-backend-xnzh.onrender.com/contact");
     console.log("✅ Contacts fetched:", response.data); // helpful log
     setContacts(response.data); // store in state
   } catch (error) {
@@ -208,7 +208,7 @@ const [contacts, setContacts] = useState([]);
 useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const res = await axios.get("http://localhost:1000/projects");
+      const res = await axios.get("https://portfolio-backend-xnzh.onrender.com/projects");
         setProjects(res.data);
         setLoading(false);
       } catch (err) {
