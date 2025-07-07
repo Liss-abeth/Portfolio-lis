@@ -197,7 +197,7 @@ const handleChange = e => {
     company: "Camerinfolks Pvt Ltd, Kochi",
     duration: "August 2024 – February 2025",
     description: "Developed and maintained web applications using JavaScript, React.js, and Node.js. Designed and implemented RESTful APIs for seamless data communication. Worked closely with cross-functional teams to contribute to the development of high-quality software solutions, ensuring timely delivery and meeting project requirements.",
-    technologies: ["HTML", "CSS", "JavaScript", "React.js", "Node.js", "MongoDB"]
+    technologies: ["HTML", "CSS", "JavaScript", "React.js", "Node.js","Express.js", "MongoDB"]
   }
 ];
 
@@ -349,14 +349,14 @@ const handleChange = e => {
 
 
     {/* SCROLL DOWN ICON */}
-    <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+    {/* <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
       <a
         href="#about"
         className="text-white opacity-70 hover:opacity-100 transition-opacity duration-300 cursor-pointer"
       >
         <i className="fas fa-chevron-down text-2xl"></i>
       </a>
-    </div>
+    </div> */}
   </div>
 </section>
 
@@ -414,7 +414,7 @@ const handleChange = e => {
             <i className="fas fa-paper-plane mr-2"></i> Get In Touch
           </a>
           <a
-            href="/Saba resumee.pdf"
+            href="/Lissabeth Babu(resume).pdf"
             download
             className="inline-block px-6 py-3 bg-transparent border border-indigo-400 text-indigo-400 hover:bg-indigo-400/10 rounded-md transition-all duration-300 !rounded-button"
           >
@@ -446,7 +446,7 @@ const handleChange = e => {
     { name: "React.js", icon: "fab fa-react", type: "fa" },
     { name: "Node.js", icon: "fab fa-node-js", type: "fa" },
     { name: "Bootstrap", icon: "fab fa-bootstrap", type: "fa" },
-    { name: "Tailwind CSS", icon: <SiTailwindcss size={24} color="#38BDF8" />, type: "react" },
+    { name: "Tailwind CSS", icon: <SiTailwindcss size={24} color="#818CF8" />, type: "react" },
     { name: "Git", icon: "fab fa-git-alt", type: "fa" },
     { name: "Figma", icon: "fab fa-figma", type: "fa" },
   ].map((skill, i) => (
@@ -475,7 +475,7 @@ const handleChange = e => {
   id="experience"
   className="py-20 px-4 md:px-20 min-h-screen transition-opacity duration-100"
 >
-  <h2 className="text-4xl font-bold text-white text-center mb-12"> Experience</h2>
+  <h2 className="text-4xl font-bold text-white text-center mb-12"> Experience <div className="h-1 w-16 bg-indigo-500 mx-auto my-2"></div></h2>
 
   <div className="grid gap-10 md:grid-cols-1 lg:grid-cols-2">
     {experienceData.map((exp, index) => (
@@ -517,7 +517,7 @@ const handleChange = e => {
   ref={projectsRef}
   className={`py-20 px-4 md:px-20 min-h-screen transition-opacity duration-100 `}
 >
-  <h2 className="text-4xl font-bold text-white text-center mb-12">Projects</h2>
+  <h2 className="text-4xl font-bold text-white text-center mb-12">Projects   <div className="h-1 w-16 bg-indigo-500 mx-auto my-2"></div> </h2>
 
   <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
     {(showAllProjects ? projects : projects.slice(0, 6)).map((project, index) => (
@@ -655,7 +655,7 @@ const handleChange = e => {
   {[
     { icon: "fab fa-github", url: "https://github.com/Liss-abeth" },
     { icon: "fab fa-linkedin-in", url: "https://www.linkedin.com/in/lissabeth-babu-5877062b2" },
-    { icon: "fab fa-instagram", url: "#" },
+    { icon: "fab fa-instagram", url: "https://www.instagram.com" },
   ].map((s, i) => (
     <a
       key={i}
@@ -696,17 +696,18 @@ const handleChange = e => {
       </div>
 
       {/* Quick Links */}
-      <div className="flex flex-wrap justify-center md:justify-end gap-6">
-        {["Home", "About", "Skills", "Experience", "Projects", "Contact"].map((item, i) => (
-          <a
-            key={i}
-            href={`#${item.toLowerCase()}`}
-            className="text-gray-400 hover:text-indigo-400 hover:underline transition-colors duration-300 text-sm"
-          >
-            {item}
-          </a>
-        ))}
-      </div>
+      <div className="flex flex-nowrap justify-center md:justify-end gap-4 overflow-x-auto">
+  {["Home", "About", "Skills", "Experience", "Projects", "Contact"].map((item, i) => (
+    <a
+      key={i}
+      href={`#${item.toLowerCase()}`}
+      className="text-gray-400 hover:text-indigo-400 hover:underline transition-colors duration-300 text-xs md:text-sm whitespace-nowrap"
+    >
+      {item}
+    </a>
+  ))}
+</div>
+
     </div>
 
     {/* Divider */}
