@@ -520,7 +520,12 @@ const handleChange = e => {
     Projects
     <div className="h-1 w-16 bg-indigo-500 mx-auto mt-2"></div>
   </h2>
-
+{loading ? (
+  <div className="flex flex-col items-center justify-center text-white mt-16">
+    <div className="loader mb-4"></div>
+    <p className="text-indigo-400 text-lg animate-pulse">Bringing your Projects to Life...</p>
+  </div>
+) : (
   <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
     {(showAllProjects ? projects : projects.slice(0, 3)).map((project, index) => (
       <div
@@ -556,6 +561,7 @@ const handleChange = e => {
       </div>
     ))}
   </div>
+)}
 
   <div className="mt-8 text-center">
     <button
