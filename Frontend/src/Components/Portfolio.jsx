@@ -414,7 +414,7 @@ const handleChange = e => {
             <i className="fas fa-paper-plane mr-2"></i> Get In Touch
           </a>
           <a
-            href="/Lissabeth Babu(resume).pdf"
+            href="/(Lissabeth Babu(Resume).pdf"
             download
             className="inline-block px-6 py-3 bg-transparent border border-indigo-400 text-indigo-400 hover:bg-indigo-400/10 rounded-md transition-all duration-300 !rounded-button"
           >
@@ -511,31 +511,34 @@ const handleChange = e => {
 
 
 
-
-       <section
+<section
   id="projects"
   ref={projectsRef}
-  className={`py-20 px-4 md:px-20 min-h-screen transition-opacity duration-100 `}
+  className="py-16 px-4 md:px-16 min-h-screen"
 >
-  <h2 className="text-4xl font-bold text-white text-center mb-12">Projects   <div className="h-1 w-16 bg-indigo-500 mx-auto my-2"></div> </h2>
+  <h2 className="text-4xl font-bold text-white text-center mb-10">
+    Projects
+    <div className="h-1 w-16 bg-indigo-500 mx-auto mt-2"></div>
+  </h2>
 
-  <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
-    {(showAllProjects ? projects : projects.slice(0, 6)).map((project, index) => (
+  <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+    {(showAllProjects ? projects : projects.slice(0, 3)).map((project, index) => (
       <div
         key={index}
-        className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:scale-105 transform transition-all duration-300 shadow-lg shadow-indigo-500/20 flex flex-col justify-between"
+        className="bg-white/5 border border-white/10 rounded-2xl p-5 hover:scale-105 transform transition duration-300 shadow-md flex flex-col justify-between"
       >
         <div>
           <h3 className="text-xl font-semibold text-indigo-400 mb-2">{project.title}</h3>
           <p className="text-gray-300 text-sm mb-4">{project.desc}</p>
           <span className="text-xs text-gray-400">{project.tech}</span>
         </div>
+
         <div className="flex gap-4 mt-6">
           <a
             href={project.live}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1 text-sm text-white border border-indigo-500 hover:bg-indigo-600 px-4 py-2 rounded-lg transition"
+            className="flex items-center gap-1 text-sm text-white border border-indigo-500 hover:bg-indigo-600/30 px-4 py-2 rounded-lg transition"
           >
             <ExternalLink size={16} />
             View
@@ -544,7 +547,7 @@ const handleChange = e => {
             href={project.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1 text-sm text-white border border-gray-500 hover:bg-gray-700 px-4 py-2 rounded-lg transition"
+            className="flex items-center gap-1 text-sm text-white border border-gray-500 hover:bg-gray-700/30 px-4 py-2 rounded-lg transition"
           >
             <Github size={16} />
             GitHub
@@ -554,17 +557,15 @@ const handleChange = e => {
     ))}
   </div>
 
-  <div className="mt-10 text-center">
-<button
-  onClick={() => setShowAllProjects(!showAllProjects)}
-  className="px-4 py-2 border border-indigo-500 text-indigo-400 hover:bg-indigo-500/10 rounded transition"
->
-  {showAllProjects ? "Show Less" : "Show More Projects"}
-</button>
-
+  <div className="mt-8 text-center">
+    <button
+      onClick={() => setShowAllProjects(!showAllProjects)}
+      className="px-4 py-2 border border-indigo-500 text-indigo-400 hover:bg-indigo-500/10 rounded transition"
+    >
+      {showAllProjects ? "Show Less" : "Show More Projects"}
+    </button>
   </div>
 </section>
-
 
 
 
