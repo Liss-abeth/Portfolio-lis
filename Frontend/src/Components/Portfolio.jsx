@@ -69,7 +69,17 @@ const visibleProjects = showAllProjects ? projects : projects.slice(0, 6);
   //   return () => chart.dispose();
   // }, []);
   
-  
+ useEffect(() => {
+  console.log("Loader started...");
+  const timer = setTimeout(() => {
+    setProjects(yourProjectsData);  // Replace with your actual data
+    setLoading(false);
+    console.log("Loader finished.");
+  }, 1500);
+
+  return () => clearTimeout(timer);
+}, []);
+
 
   useEffect(() => {
     if (index < fullText.length) {
@@ -154,19 +164,20 @@ const visibleProjects = showAllProjects ? projects : projects.slice(0, 6);
 
 
   const fetchProjects = async () => {
-    try {
-      const res = await axios.get("https://portfolio-backend-xnzh.onrender.com/projects");
-      setProjects(res.data);
-    } catch (error) {
-      console.error("Failed to fetch projects", error);
-    }
-  };
-  
+  setLoading(true);  // ✅ Start loader
+  try {
+    const res = await axios.get("https://portfolio-backend-xnzh.onrender.com/projects");
+    setProjects(res.data);
+  } catch (error) {
+    console.error("Failed to fetch projects", error);
+  } finally {
+    setLoading(false);  // ✅ Stop loader whether success or fail
+  }
+};
 
-  useEffect(() => {
-    fetchProjects();
-  }, []);
-
+useEffect(() => {
+  fetchProjects();
+}, []);
 
 const handleChange = e => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -523,7 +534,7 @@ const handleChange = e => {
 {loading ? (
   <div className="flex flex-col items-center justify-center text-white mt-16">
     <div className="loader mb-4"></div>
-    <p className="text-indigo-400 text-lg animate-pulse">Bringing your Projects to Life...</p>
+    <p className="text-indigo-400 text-lg animate-pulse">Loading Projects...</p>
   </div>
 ) : (
   <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
