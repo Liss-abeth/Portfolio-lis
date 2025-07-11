@@ -351,7 +351,7 @@ const handleChange = e => {
     {/* IMAGE */}
    <div className="relative w-52 h-52 md:w-64 md:h-64 mt-10 md:mt-0 mx-auto rounded-full overflow-hidden border-4 border-indigo-400 shadow-lg">
   <img
-    src="lissa.jpg"
+    src="liss.jpg"
     alt="Profile"
     className="w-full h-full object-cover"
   />
