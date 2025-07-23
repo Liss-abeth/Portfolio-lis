@@ -39,7 +39,7 @@ const handlemailSubmit = async (e) => {
   setSuccess(null);
 
   try {
- await axios.post("http://localhost:1000/api/email/contact", {
+ await axios.post("https://portfolio-backend-xnzh.onrender.com/api/email/contac", {
   name: form.name,
   email: form.email,
   message: form.message,
