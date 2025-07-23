@@ -27,47 +27,39 @@ const Portfolio = () => {
   const [index, setIndex] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
   const [showAllProjects, setShowAllProjects] = useState(false);
+  const [showForm, setShowForm] = useState(false);
+
 
 const visibleProjects = showAllProjects ? projects : projects.slice(0, 6);
 
-  // useEffect(() => {
-  //   const chart = echarts.init(skillChartRef.current);
-  //   chart.setOption({
-  //     tooltip: {},
-  //     radar: {
-  //       indicator: [
-  //         { name: 'HTML', max: 100 },
-  //         { name: 'CSS', max: 100 },
-  //         { name: 'JavaScript', max: 100 },
-  //         { name: 'MongoDB', max: 100 },
-  //         { name: 'Express', max: 100 },
-  //         { name: 'React', max: 100 },
-  //         { name: 'Node', max: 100 },
-  //         { name: 'Tailwind', max: 100 },
-  //         { name: 'Bootstrap', max: 100 },
-  //         { name: 'Git', max: 100 },
-  //         { name: 'Figma', max: 100 },
-  //       ],
-  //       radius: '65%',
-  //       axisName: { color: '#fff', fontSize: 11 },
-  //       splitLine: { lineStyle: { color: '#6366f1', type: 'dashed' } },
-  //       splitArea: { areaStyle: { color: 'transparent' } }
-  //     },
-  //     series: [{
-  //       type: 'radar',
-  //       data: [{
-  //         value: [95, 90, 95, 85, 80, 92, 88, 90, 85, 80, 75],
-  //         name: 'Lis Skills',
-  //         areaStyle: { color: 'rgba(99,102,241,0.4)' },
-  //         lineStyle: { color: '#6366f1' },
-  //         symbol: 'circle',
-  //         symbolSize: 5
-  //       }]
-  //     }]
-  //   });
-  
-  //   return () => chart.dispose();
-  // }, []);
+
+const handlemailSubmit = async (e) => {
+  e.preventDefault(); // prevent form reload
+  setLoading(true);
+  setSuccess(null);
+
+  try {
+ await axios.post("http://localhost:1000/api/email/contact", {
+  name: form.name,
+  email: form.email,
+  message: form.message,
+});
+
+
+
+    setSuccess("Message sent successfully!");
+    setForm({ name: "", email: "", message: "" });
+ } catch (error) {
+  console.error("Error sending message:", error);
+  console.log("Full error response:", error?.response?.data || error.message);
+  setSuccess(false);
+}
+finally {
+    setLoading(false);
+  }
+};
+
+
   
  useEffect(() => {
   console.log("Loader started...");
@@ -75,7 +67,7 @@ const visibleProjects = showAllProjects ? projects : projects.slice(0, 6);
     setProjects(yourProjectsData);  // Replace with your actual data
     setLoading(false);
     console.log("Loader finished.");
-  }, 1500);
+  }, 2500);
 
   return () => clearTimeout(timer);
 }, []);
@@ -371,22 +363,22 @@ const handleChange = e => {
   </div>
 </section>
 
-             <section id="about" className="py-20 relative overflow-hidden bg-black/90">
+            <section id="about" className="py-20 relative overflow-hidden bg-black/90">
   {/* Glowing blobs background */}
   <div className="absolute inset-0 opacity-20 pointer-events-none">
     <div className="absolute top-20 left-10 w-32 h-32 rounded-full bg-indigo-600 filter blur-3xl"></div>
     <div className="absolute bottom-20 right-10 w-40 h-40 rounded-full bg-indigo-800 filter blur-3xl"></div>
   </div>
 
-  <div className="container mx-auto px-6 relative z-10">
+  <div className="container mx-auto px-4 sm:px-6 relative z-10">
     <div className="text-center mb-16">
       <h2 className="text-4xl font-bold text-white mb-2">About Me</h2>
       <div className="h-1 w-20 bg-indigo-500 mx-auto"></div>
     </div>
 
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
       {/* LEFT SIDE */}
-      <div className="bg-gray-900 bg-opacity-50 backdrop-blur-md p-8 rounded-lg border border-gray-800 shadow-lg">
+      <div className="bg-gray-900 bg-opacity-50 backdrop-blur-md p-6 sm:p-8 rounded-lg border border-gray-800 shadow-lg">
         <h3 className="text-2xl font-bold mb-4 text-indigo-300">Who I Am</h3>
         <p className="text-gray-300 mb-6 leading-relaxed">
           I’m a dedicated <span className="text-indigo-400 font-semibold">MERN Stack Developer</span> with practical experience in building dynamic, responsive, and user-friendly web applications. My passion for technology has grown into a career focused on delivering scalable and efficient solutions.
@@ -397,37 +389,107 @@ const handleChange = e => {
       </div>
 
       {/* RIGHT SIDE */}
-      <div className="bg-gray-900 bg-opacity-50 backdrop-blur-md p-8 rounded-lg border border-gray-800 shadow-lg flex flex-col justify-between">
-       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
-  <div className="flex items-start space-x-3">
-    <i className="fas fa-map-marker-alt text-indigo-400 mt-1"></i>
-    <div>
-      <h4 className="text-lg font-semibold mb-1 text-white">Location</h4>
-      <p className="text-gray-400 break-words">Kerala, Kannur</p>
-    </div>
-  </div>
+      <div className="bg-gray-900 bg-opacity-50 backdrop-blur-md p-6 sm:p-8 rounded-lg border border-gray-800 shadow-lg flex flex-col justify-between">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+          <div className="flex flex-col sm:flex-row sm:items-start gap-2">
+            <i className="fas fa-map-marker-alt text-indigo-400 text-base sm:mt-1"></i>
+            <div>
+              <h4 className="text-lg font-semibold text-white mb-1 sm:mb-0">Location</h4>
+              <p className="text-gray-400 break-words text-sm sm:text-base">Kerala, Kannur</p>
+            </div>
+          </div>
 
-  <div className="flex items-start space-x-3">
-    <i className="fas fa-envelope text-indigo-400 mt-1"></i>
-    <div>
-      <h4 className="text-lg font-semibold mb-1 text-white">Email</h4>
-      <p className="text-gray-400 break-all">lissabethbabu29@gmail.com</p>
-    </div>
-  </div>
-</div>
+          <div className="flex flex-col sm:flex-row sm:items-start gap-2">
+            <i className="fas fa-envelope text-indigo-400 text-base sm:mt-1"></i>
+            <div>
+              <h4 className="text-lg font-semibold text-white mb-1 sm:mb-0">Email</h4>
+<p
+  onClick={() => setShowForm(true)}
+  className="text-gray-400 break-all sm:whitespace-nowrap cursor-pointer hover:underline text-sm sm:text-base"
+  style={{ paddingLeft: '2px' }} // inline CSS option
+>
+  lissabethbabu29@gmail.com
+</p>
 
 
-        <div className="flex flex-wrap gap-4">
+            </div>
+          </div>
+
+          {/* Message Form Below Email & Location */}
+          {showForm && (
+            <div className="col-span-2 mt-4">
+              <div className="bg-gray-900 p-4 rounded-lg w-full max-w-xs mx-auto shadow-md border border-gray-700">
+                <h2 className="text-base font-medium text-white mb-2 text-center">Send a Message</h2>
+                <form onSubmit={handlemailSubmit} className="space-y-3">
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Name"
+                    value={form.name}
+                    onChange={handleChange}
+                    className="w-full px-2 py-1 text-sm rounded bg-black border border-gray-700 text-white"
+                    required
+                  />
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    value={form.email}
+                    onChange={handleChange}
+                    className="w-full px-2 py-1.5 text-sm rounded bg-black border border-gray-700 text-white"
+                    required
+                  />
+                  <textarea
+                    name="message"
+                    placeholder="Message"
+                    value={form.message}
+                    onChange={handleChange}
+                    className="w-full px-2 py-1.5 text-sm rounded bg-black border border-gray-700 text-white"
+                    rows="2"
+                    required
+                  ></textarea>
+
+                  <div className="flex justify-between items-center">
+                    <button
+  type="submit"
+  className="bg-indigo-600 hover:bg-indigo-700 text-white text-sm px-2.5 py-1 rounded"
+  disabled={loading}
+>
+  {loading ? "Sending..." : "Send"}
+</button>
+
+                    <button
+                      type="button"
+                      onClick={() => setShowForm(false)}
+                      className="text-[10px] text-gray-400 hover:text-red-400"
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                </form>
+
+                {success && (
+                  <p className="mt-2 text-xs text-green-400 text-center">{success}</p>
+                )}
+                {success === false && (
+                  <p className="mt-2 text-xs text-red-400 text-center">Something went wrong.</p>
+                )}
+              </div>
+            </div>
+          )}
+        </div>
+
+        <div className="flex flex-col sm:flex-row gap-4">
           <a
             href="#contact"
-            className="inline-block px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-md transition-all duration-300 shadow-lg hover:shadow-indigo-500/50 !rounded-button"
+            className="inline-block px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-md transition-all duration-300 shadow-lg hover:shadow-indigo-500/50 !rounded-button text-center"
           >
             <i className="fas fa-paper-plane mr-2"></i> Get In Touch
           </a>
           <a
             href="/(Lissabeth Babu(Resume).pdf"
             download
-            className="inline-block px-6 py-3 bg-transparent border border-indigo-400 text-indigo-400 hover:bg-indigo-400/10 rounded-md transition-all duration-300 !rounded-button"
+            className="inline-block px-6 py-3 bg-transparent border border-indigo-400 text-indigo-400 hover:bg-indigo-400/10 rounded-md transition-all duration-300 !rounded-button text-center"
           >
             <i className="fas fa-download mr-2"></i> Download Resume
           </a>
@@ -436,6 +498,7 @@ const handleChange = e => {
     </div>
   </div>
 </section>
+
 
 <section id="skills" className="py-20">
   <div className="container mx-auto px-6">

@@ -5,6 +5,7 @@ const projectRoutes = require('./Routes/ProjectRoutes');
 const homeRoutes = require('./Routes/homeRouter'); 
 const contactRoutes = require('./Routes/contactRouter'); 
 const adminRoutes = require('./Routes/adminRoutes'); 
+const emailRoutes = require("./Routes/emailRoutes");
 
 // ✅ Load env first!
 dotenv.config();
@@ -21,6 +22,7 @@ app.use('/projects', projectRoutes);
 app.use('/home', homeRoutes); 
 app.use('/contact', contactRoutes); 
 app.use('/admin', adminRoutes); 
+app.use("/api/email", emailRoutes);
 
 const PORT = process.env.PORT || 1000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
