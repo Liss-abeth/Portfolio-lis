@@ -196,7 +196,7 @@ const handleChange = e => {
 
  const experienceData = [
   {
-    role: "MERN Stack Developer",
+    role: "Trainee MERN Stack Developer",
     company: "Camerinfolks Pvt Ltd, Kochi",
     duration: "August 2024 – February 2025",
     description: "Developed and maintained web applications using JavaScript, React.js, and Node.js. Designed and implemented RESTful APIs for seamless data communication. Worked closely with cross-functional teams to contribute to the development of high-quality software solutions, ensuring timely delivery and meeting project requirements.",
@@ -341,7 +341,7 @@ const handleChange = e => {
     </div>
 
     {/* IMAGE */}
-   <div className="relative w-52 h-52 md:w-64 md:h-64 mt-10 md:mt-0 mx-auto rounded-full overflow-hidden border-4 border-indigo-400 shadow-lg">
+   <div className="relative w-52 h-52 md:w-64 md:h-64 mt-10 md:mt-0 mx-auto rounded-full overflow-hidden border-4 border-indigo-500 shadow-lg">
   <img
     src="liss.jpg"
     alt="Profile"
@@ -379,7 +379,7 @@ const handleChange = e => {
     <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
       {/* LEFT SIDE */}
       <div className="bg-gray-900 bg-opacity-50 backdrop-blur-md p-6 sm:p-8 rounded-lg border border-gray-800 shadow-lg">
-        <h3 className="text-2xl font-bold mb-4 text-indigo-300">Who I Am</h3>
+        {/* <h3 className="text-2xl font-bold mb-4 text-indigo-300">Who I Am</h3> */}
         <p className="text-gray-300 mb-6 leading-relaxed">
           I’m a dedicated <span className="text-indigo-400 font-semibold">MERN Stack Developer</span> with practical experience in building dynamic, responsive, and user-friendly web applications. My passion for technology has grown into a career focused on delivering scalable and efficient solutions.
         </p>
@@ -557,7 +557,7 @@ const handleChange = e => {
         key={index}
         className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:scale-105 transform transition-all duration-300 shadow-lg shadow-indigo-500/20"
       >
-        <h3 className="text-xl font-semibold text-indigo-400 mb-2">{exp.role}</h3>
+        <h3 className="text-base sm:text-lg md:text-xl font-semibold text-indigo-500 mb-2">{exp.role}</h3>
         <p className="text-gray-300 text-sm mb-1">{exp.company}</p>
         <p className="text-gray-400 text-xs mb-4">{exp.duration}</p>
         <p className="text-gray-300 text-sm mb-4">{exp.description}</p>
@@ -607,7 +607,7 @@ const handleChange = e => {
         className="bg-white/5 border border-white/10 rounded-2xl p-5 hover:scale-105 transform transition duration-300 shadow-md flex flex-col justify-between"
       >
         <div>
-          <h3 className="text-xl font-semibold text-indigo-400 mb-2">{project.title}</h3>
+          <h3 className="text-xl font-semibold text-indigo-500 mb-2">{project.title}</h3>
           <p className="text-gray-300 text-sm mb-4">{project.desc}</p>
           <span className="text-xs text-gray-400">{project.tech}</span>
         </div>
