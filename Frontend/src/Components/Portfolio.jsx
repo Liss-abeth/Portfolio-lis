@@ -196,7 +196,7 @@ const handleChange = e => {
 
  const experienceData = [
   {
-    role: "Trainee MERN Stack Developer",
+    role: "MERN Stack Developer",
     company: "Camerinfolks Pvt Ltd, Kochi",
     duration: "August 2024 – February 2025",
     description: "Developed and maintained web applications using JavaScript, React.js, and Node.js. Designed and implemented RESTful APIs for seamless data communication. Worked closely with cross-functional teams to contribute to the development of high-quality software solutions, ensuring timely delivery and meeting project requirements.",
@@ -327,13 +327,13 @@ const handleChange = e => {
       <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
         <a
           href="#projects"
-          className="px-8 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-md transition-all duration-300 shadow-lg hover:shadow-indigo-500/50 !rounded-button cursor-pointer whitespace-nowrap"
+          className="px-8 py-3 bg-indigo-500 hover:bg-indigo-600 text-white rounded-md transition-all duration-300 shadow-lg hover:shadow-indigo-500/10 !rounded-button cursor-pointer whitespace-nowrap"
         >
           View Projects
         </a>
         <a
           href="#contact"
-          className="px-8 py-3 bg-transparent border border-indigo-400 text-indigo-400 hover:bg-indigo-400/10 rounded-md transition-all duration-300 !rounded-button cursor-pointer whitespace-nowrap"
+          className="px-8 py-3 bg-transparent border border-indigo-500 text-indigo-400 hover:bg-indigo-400/10 rounded-md transition-all duration-300 !rounded-button cursor-pointer whitespace-nowrap"
         >
           Contact Me
         </a>
@@ -341,7 +341,7 @@ const handleChange = e => {
     </div>
 
     {/* IMAGE */}
-   <div className="relative w-52 h-52 md:w-64 md:h-64 mt-10 md:mt-0 mx-auto rounded-full overflow-hidden border-4 border-indigo-500 shadow-lg">
+   <div className="relative w-52 h-52 md:w-64 md:h-64 mt-10 md:mt-0 mx-auto rounded-full overflow-hidden border-4 border-indigo-400 shadow-lg">
   <img
     src="liss.jpg"
     alt="Profile"
@@ -482,7 +482,7 @@ const handleChange = e => {
         <div className="flex flex-col sm:flex-row gap-4">
           <a
             href="#contact"
-            className="inline-block px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-md transition-all duration-300 shadow-lg hover:shadow-indigo-500/50 !rounded-button text-center"
+            className="inline-block px-6 py-3 bg-indigo-500 hover:bg-indigo-700 text-white rounded-md transition-all duration-300 shadow-lg hover:shadow-indigo-500/10 !rounded-button text-center"
           >
             <i className="fas fa-paper-plane mr-2"></i> Get In Touch
           </a>
@@ -557,7 +557,7 @@ const handleChange = e => {
         key={index}
         className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:scale-105 transform transition-all duration-300 shadow-lg shadow-indigo-500/20"
       >
-        <h3 className="text-base sm:text-lg md:text-xl font-semibold text-indigo-500 mb-2">{exp.role}</h3>
+        <h3 className="text-xl font-semibold text-indigo-300 mb-2">{exp.role}</h3>
         <p className="text-gray-300 text-sm mb-1">{exp.company}</p>
         <p className="text-gray-400 text-xs mb-4">{exp.duration}</p>
         <p className="text-gray-300 text-sm mb-4">{exp.description}</p>
@@ -607,7 +607,7 @@ const handleChange = e => {
         className="bg-white/5 border border-white/10 rounded-2xl p-5 hover:scale-105 transform transition duration-300 shadow-md flex flex-col justify-between"
       >
         <div>
-          <h3 className="text-xl font-semibold text-indigo-500 mb-2">{project.title}</h3>
+          <h3 className="text-xl font-semibold text-indigo-300 mb-2">{project.title}</h3>
           <p className="text-gray-300 text-sm mb-4">{project.desc}</p>
           <span className="text-xs text-gray-400">{project.tech}</span>
         </div>
@@ -617,7 +617,7 @@ const handleChange = e => {
             href={project.live}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1 text-sm text-white border border-indigo-500 hover:bg-indigo-600/30 px-4 py-2 rounded-lg transition"
+            className="flex items-center gap-1 text-sm text-white border border-indigo-300 hover:bg-indigo-600/30 px-4 py-2 rounded-lg transition"
           >
             <ExternalLink size={16} />
             View
@@ -640,7 +640,7 @@ const handleChange = e => {
   <div className="mt-8 text-center">
     <button
       onClick={() => setShowAllProjects(!showAllProjects)}
-      className="px-4 py-2 border border-indigo-500 text-indigo-400 hover:bg-indigo-500/10 rounded transition"
+      className="px-4 py-2 border border-indigo-300 text-indigo-400 hover:bg-indigo-500/10 rounded transition"
     >
       {showAllProjects ? "Show Less" : "Show More Projects"}
     </button>
@@ -704,7 +704,7 @@ const handleChange = e => {
       <button
         type="submit"
         disabled={loading}
-        className="w-full bg-indigo-600 hover:bg-indigo-700 py-2 rounded text-white transition"
+        className="w-full bg-indigo-500 hover:bg-indigo-600 py-2 rounded text-white transition"
       >
         {loading ? "Sending..." : <><i className="fas fa-paper-plane mr-2"></i> Send</>}
       </button>
